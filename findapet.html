@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find a Pet</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+      }
+
+      section {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .pet-card {
+        display: flex;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      .pet-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
+      .pet-details {
+        flex: 1;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Find a Pet</h1>
+      <input type="search" id="query" name="q" placeholder="Search..." />
+      <button>Search</button>
+    </header>
+    <main>
+      <section>
+        <table border="1">
+          <tr>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>
+              <img class="pet-image" src="images/dog1.webp" alt="Pet 1" />
+            </td>
+            <td><h2>DOG</h2></td>
+            <td>
+              <p>
+                Huskies may be hard to train due to their stubborn nature, but
+                that doesn't mean they are unintelligent dogs. Quite the
+                opposite: they're very intelligent and need mental stimulation.
+                If left to their own devices, with no one to interact with, they
+                will amuse themselves by destroying all the things.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img class="pet-image" src="images/cat.webp" alt="Pet 2" />
+            </td>
+            <td><h2>CAT</h2></td>
+            <td>
+              <p>
+                Cat, (Felis catus), domesticated member of the family Felidae,
+                order Carnivora, and the smallest member of that family. Like
+                all felids, domestic cats are characterized by supple low-slung
+                bodies, finely molded heads, long tails that aid in balance, and
+                specialized teeth and claws that adapt them admirably to a life
+                of active hunting. Cats possess other features of their wild
+                relatives in being basically carnivorous, remarkably agile and
+                powerful, and finely coordinated in movement.
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Add more pet cards as needed -->
+      </section>
+    </main>
+  </body>
+</html>
