@@ -67,3 +67,55 @@ body {
   height: 100vh;
   width: auto;
 }
+
+/* Gallery Page */
+
+h2 {
+  color: #333;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  padding: 15px;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.info p {
+  color: #777;
+  margin: 5px 0 0;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
