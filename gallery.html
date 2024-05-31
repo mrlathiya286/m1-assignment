@@ -3,70 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pet Gallery - Find a Pet</title>
-    <link rel="stylesheet" href="styless.css" />
+    <title>Pet Gallery</title>
+    <style>
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .card {
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        width: 200px;
+        position: relative;
+      }
+      .card img {
+        max-width: 100%;
+        cursor: pointer;
+      }
+      .description {
+        visibility: hidden;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px;
+        z-index: 1;
+      }
+      .card:hover .description {
+        visibility: visible;
+      }
+      .caption {
+        font-weight: bold;
+        margin-top: 5px;
+      }
+    </style>
   </head>
   <body>
-    <header class="main-heading">
-      <div class="heading">
-        <div class="logo">
-          <img
-            src="https://prod-assets.production.omega.aapdev.org/img/AAP-Logo-Animated-2x.apng"
-            width="200"
-            alt=""
-          />
-        </div>
-        <div class="main-links">
-          <ul class="links">
-            <a href="findapet.html"><li class="link1">Find a pet</li></a>
-            <a href="gallery.html"><li class="link1">Gallery</li></a>
-            <a href="page3.html"><li class="link1">Contact</li></a>
-          </ul>
-        </div>
-        <!-- BUtton -->
-        <div class="button">
-          <a href="">
-            <button class="btn1">Login</button>
-          </a>
-          <a href=""> <button class="btn2">Signup</button></a>
-        </div>
-      </div>
-    </header>
     <main>
       <h2>Pet Gallery</h2>
-      <div class="gallery">
-        <div class="card">
-          <img src="images/dog1.webp" alt="Cute dog 1" />
-          <div class="info">
-            <h3>Buddy</h3>
-            <p>Breed: Golden Retriever</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/cat.webp" alt="Cute dog 2" />
-          <div class="info">
-            <h3>Max</h3>
-            <p>Breed: Labrador Retriever</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/german.png" alt="Cute cat 1" />
-          <div class="info">
-            <h3>Whiskers</h3>
-            <p>Breed: Maine Coon</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/cat.webp" alt="Cute cat 2" />
-          <div class="info">
-            <h3>Luna</h3>
-            <p>Breed: Siamese</p>
-          </div>
-        </div>
-      </div>
+      <div class="gallery" id="gallery"></div>
     </main>
-    <footer>
-      <p>&copy; 2024 Find a Pet. All rights reserved.</p>
-    </footer>
+
+    <script>
+      const petNames = [
+        "Buddy",
+        "Max",
+        "Whiskers",
+        "Luna",
+        "Charlie",
+        "Milo",
+        "Bella",
+        "Lucy",
+        "Daisy",
+        "Molly",
+      ];
+      const petBreeds = [
+        "Golden Retriever",
+        "Labrador Retriever",
+        "Maine Coon",
+        "Siamese",
+        "Poodle",
+        "Bulldog",
+        "Beagle",
+        "Pug",
+        "Rottweiler",
+        "German Shepherd",
+      ];
+      const captionTexts = [
+        "Buddy the Golden Retriever",
+        "Max the Labrador Retriever",
+        "Whiskers the Maine Coon",
+        "Luna the Siamese",
+        "Charlie the Poodle",
+        "Milo the Bulldog",
+        "Bella the Beagle",
+        "Lucy the Pug",
+        "Daisy the Rottweiler",
+        "Molly the German Shepherd",
+      ];
+      const descTexts = [
+        "Buddy is a friendly and energetic Golden Retriever who loves to play fetch.",
+        "Max is a loyal Labrador Retriever who enjoys swimming and outdoor activities.",
+        "Whiskers is a majestic Maine Coon with a gentle temperament and loves being brushed.",
+        "Luna is a curious Siamese cat with striking blue eyes and a love for climbing.",
+        "Charlie is a smart and active Poodle who excels in agility training.",
+        "Milo is a gentle Bulldog who loves lounging and being pampered.",
+        "Bella is an inquisitive Beagle who enjoys exploring and sniffing around.",
+        "Lucy is a charming Pug with a playful personality and a love for cuddles.",
+        "Daisy is a protective Rottweiler with a heart of gold.",
+        "Molly is a brave German Shepherd who is always ready for an adventure.",
+      ];
+
+      const openCaptionTag = '<div class="caption">';
+      const closeCaptionTag = "</div>";
+      const openDescTag = '<div class="description">';
+      const closeDescTag = "</div>";
+
+      const gallery = document.getElementById("gallery");
+
+      for (let i = 0; i < petNames.length; i++) {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const img = document.createElement("img");
+        img.src = `images/animal${i + 1}.jpg`;
+        img.alt = `Cute animal ${i + 1}`;
+        card.appendChild(img);
+
+        const info = document.createElement("div");
+        info.className = "info";
+
+        const caption = openCaptionTag + captionTexts[i] + closeCaptionTag;
+        info.innerHTML = caption;
+
+        const p = document.createElement("p");
+        p.textContent = `Breed: ${petBreeds[i]}`;
+        info.appendChild(p);
+
+        card.appendChild(info);
+
+        const description = openDescTag + descTexts[i] + closeDescTag;
+        card.innerHTML += description;
+
+        gallery.appendChild(card);
+      }
+    </script>
   </body>
 </html>
