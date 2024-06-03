@@ -5,75 +5,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My First Web Page</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-   <header class="main-heading">
-        <div class="heading">
-          <div class="logo">
-            <img
-              src="https://prod-assets.production.omega.aapdev.org/img/AAP-Logo-Animated-2x.apng"
-              width="200"
-              alt=""
-            />
-          </div>
-          <div class="main-links">
-            <ul class="links">
-              <a href="findapet.html"><li class="link1">Find a pet</li></a>
-              <a href="gallery.html"><li class="link1">Gallery</li></a>
-              <a href="page3.html"><li class="link1">Contact</li></a>
-            </ul>
-          </div>
-          <!-- BUtton -->
-          <div class="button">
-            <a href="">
-              <button class="btn1">Login</button>
-            </a>
-            <a href=""> <button class="btn2">Signup</button></a>
-          </div>
+    <header class="main-heading">
+      <div class="heading">
+        <div class="logo">
+          <img
+            src="https://prod-assets.production.omega.aapdev.org/img/AAP-Logo-Animated-2x.apng"
+            width="200"
+            alt="Logo"
+          />
         </div>
-      </header>
-      <!-- Main Content -->
-      <main>
-        <form action="../week1-day3/thankyou.html" method="post" class="forms">
-          <fieldset>
-            <legend class="dashed">User Information</legend>
-            <label>Full Name</label><br />
-            <input class="input" type="text" placeholder="Name" /><br />
-            <label>Email</label><br />
-            <input
-              class="input"
-              type="email"
-              placeholder="dhairya@gmail.com"
-            /><br />
-            <label>Enter Your Mobile Number</label><br />
-            <input
-              class="input"
-              type="number"
-              placeholder="+1 123-4345-344"
-            /><br />
-            <label>Gender</label><br />
-            <input type="radio" name="Male" value="Male" />Male
-            <input type="radio" name="FeMale" value="FeMale" />FeMale<br />
+        <div class="main-links">
+          <ul class="links">
+            <a href="findapet.html"><li class="link1">Find a pet</li></a>
+            <a href="gallery.html"><li class="link1">Gallery</li></a>
+            <a href="page3.html"><li class="link1">Contact</li></a>
+          </ul>
+        </div>
+        <!-- Button -->
+        <div class="button">
+          <a href=""><button class="btn1">Login</button></a>
+          <a href=""><button class="btn2">Signup</button></a>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <main>
+      <form action="../week1-day3/thankyou.html" method="post" class="forms">
+        <fieldset>
+          <legend class="dashed">User Information</legend>
+          <label>Full Name</label><br />
+          <input class="input" type="text" placeholder="Name" /><br />
+          <label>Email</label><br />
+          <input
+            class="input"
+            type="email"
+            placeholder="email@example.com"
+          /><br />
+          <label>Enter Your Mobile Number</label><br />
+          <input
+            class="input"
+            type="number"
+            placeholder="+1 123-4345-344"
+          /><br />
+          <label>Gender</label><br />
+          <input type="radio" name="gender" value="Male" /> Male
+          <input type="radio" name="gender" value="Female" /> Female<br />
 
-            <label>How we can contact You?</label><br />
-            <select class="input">
-              <option value="Email">Email</option>
-              <option value="Phone">Mobile Number</option></select
-            ><br />
-            <label>Tell us about your visit Today?</label>
-            <textarea class="input" rows="5" cols="30"></textarea><br />
-            <button class="btn1">
-              <a href="thankyou.html">Submit</a>
-            </button>
-          </fieldset>
-        </form>
-      </main>
-      <!-- End of Main Content -->
+          <label>How we can contact you?</label><br />
+          <select
+            class="input"
+            id="contact-method"
+            onchange="showContactInput()"
+          >
+            <option value="">Select an option</option>
+            <option value="Email">Email</option>
+            <option value="Phone">Mobile Number</option></select
+          ><br />
 
-      <!-- Footer Information -->
-      <br />
-      <footer>&copy; Copyright 2024</footer>
-      <!-- End of Footer Information Dhairya -->
-    </div>
+          <div id="contact-input" class="hidden">
+            <label id="contact-label"></label><br />
+            <input id="contact-value" class="input" type="text" /><br />
+          </div>
+
+          <label>Tell us about your visit today?</label><br />
+          <textarea class="input" rows="5" cols="30"></textarea><br />
+          <button class="btn1"><a href="thankyou.html">Submit</a></button>
+        </fieldset>
+      </form>
+    </main>
+    <!-- End of Main Content -->
+
+    <!-- Footer Information -->
+    <br />
+    <footer>&copy; Copyright 2024</footer>
+    <!-- End of Footer Information -->
+
+    <script>
+      function showContactInput() {
+        const contactMethod = document.getElementById("contact-method").value;
+        const contactInput = document.getElementById("contact-input");
+        const contactLabel = document.getElementById("contact-label");
+        const contactValue = document.getElementById("contact-value");
+
+        if (contactMethod === "Email") {
+          contactLabel.textContent = "Enter your email";
+          contactValue.type = "email";
+          contactInput.classList.remove("hidden");
+        } else if (contactMethod === "Phone") {
+          contactLabel.textContent = "Enter your phone number";
+          contactValue.type = "tel";
+          contactInput.classList.remove("hidden");
+        } else {
+          contactInput.classList.add("hidden");
+        }
+      }
+    </script>
   </body>
 </html>
